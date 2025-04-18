@@ -21,20 +21,10 @@ export const path1 = [
     milestone:
       "You enlisted in the Army after graduating high school and completed Basic Training.",
     aiContext:
-      "User enlisted in the Army at age 18 and began basic training. They are planning to apply for the Green to Gold Program after completing 2 years of active-duty service so that they can earn an associates degree while on active duty. Give some brief information about the Green to Gold Active-Duty program and ask them what degree program they are interested in, between Political Science and Organizational Leadership.",
+      "User enlisted in the Army at age 18 and completed basic training.",
     achievements: [
       "Completed Basic Training",
       "Started earning military benefits",
-    ],
-    choices: [
-      {
-        label: "Political Science",
-        aiContext: "User chose Political Science",
-      },
-      {
-        label: "Organizational Leadership",
-        aiContext: "User chose Organizational Leadership",
-      },
     ],
   },
   {
@@ -51,16 +41,26 @@ export const path1 = [
       housing: 4000,
       food: 1500,
       healthcare: 1500,
-      education: 2500,
+      education: 25000,
       training: 500,
     },
     milestone:
-      "You were accepted into the Green to Gold Program and began a 2-year college degree while on active duty.",
+      "You are a Private First Class (E-3) and plan to pursue a 2-year college degree while on active duty through the Green to Gold Program.",
     aiContext:
-      "User joined the Green to Gold Program while on active duty and began college. Give the user a short explanation (max 1 paragraph) of how students balance active duty and a 2-year degree",
+      "User is now a Private First Class (E-3). They are planning to apply for the Green to Gold Program after completing 2 years of active-duty service so that they can earn an associates degree while on active duty. Give some brief information about the Green to Gold Active-Duty program and ask them what degree program they are interested in, between Political Science and Organizational Leadership.",
     achievements: [
-      "Entered college on active duty",
+      "Applied for Green to Gold",
       "Increased retirement contributions",
+    ],
+    choices: [
+      {
+        label: "Political Science",
+        aiContext: "User chose Political Science",
+      },
+      {
+        label: "Organizational Leadership",
+        aiContext: "User chose Organizational Leadership",
+      },
     ],
   },
   {
@@ -77,18 +77,28 @@ export const path1 = [
       housing: 6000,
       food: 2000,
       healthcare: 3000,
-      education: 8000,
+      education: 25000,
       training: 1000,
     },
     milestone:
-      "You completed your college degree through the Green to Gold Program and were commissioned as a Second Lieutenant (2LT).",
+      "You completed your associate's degree through the Green to Gold Program and were commissioned as a Second Lieutenant (2LT).",
     aiContext:
-      "User earned a associates's degree through the Green to Gold Program and commissioned as a 2LT at age 22.",
+      "User earned a associates's degree through the Green to Gold Program and commissioned as a 2LT at age 22. They have some savings at this point, so give them the option to either increase their retirement contributions or buy their first new car",
     achievements: [
       "Completed college",
       "Commissioned as an officer",
       "No student debt",
-      "Purchased first car",
+      "Bought first new car",
+    ],
+    choices: [
+      {
+        label: "Increase Retirement Savings",
+        aiContext: "User chose to increase retirement savings",
+      },
+      {
+        label: "Buy first New Car",
+        aiContext: "User chose to buy their first car",
+      },
     ],
   },
   {
@@ -109,8 +119,19 @@ export const path1 = [
       training: 2000,
     },
     milestone: "You were promoted to Captain and took command of a company.",
-    aiContext: "User was promoted to Captain and began leading a company.",
+    aiContext:
+      "User was promoted to Captain and began leading a company. They are planning to buy a home. Give them 1-2 sentences about the VA loan for home buyers and how it could benefit them. Ask them if they'd like to buy a fixer-upper or a new build.",
     achievements: ["Promoted to CPT", "Bought first home using VA loan"],
+    choices: [
+      {
+        label: "Buy a fixer upper",
+        aiContext: "User chose to buy a fixer-upper house",
+      },
+      {
+        label: "Buy a new build",
+        aiContext: "User chose to buy a new build house",
+      },
+    ],
   },
   {
     id: "p1-5",
@@ -132,11 +153,32 @@ export const path1 = [
     milestone:
       "You were promoted to Major (O-4) and graduated from Command and General Staff College.",
     aiContext:
-      "User was promoted to Major and completed mid-career officer education.",
+      "User was promoted to Major and completed mid-career officer education. They got married and have started a family. They are at an important point in their career and can choose from 1 of three options: Commit to staying in until 20 for retirement, Pursue a specialized track (e.g. Foreign Area Officer or Acquisition Corps), Begin planning for civilian transition",
     achievements: [
       "Promoted to MAJ",
       "Command & General Staff College",
       "Started a family",
+    ],
+    choices: [
+      {
+        label: "Commit to staying in until 20 for retirement",
+        nextId: "p1-6",
+        aiContext:
+          "User committed to serving a full 20-year military career to earn pension and long-term benefits.",
+      },
+      {
+        label:
+          "Pursue a specialized track (e.g. Foreign Area Officer or Acquisition Corps)",
+        nextPath: "path1-specialized-track",
+        aiContext:
+          "User pursued a specialized career path in the Army, expanding their expertise and preparing for post-military opportunities.",
+      },
+      {
+        label: "Begin planning for civilian transition",
+        nextPath: "civilian-transition-track",
+        aiContext:
+          "User began preparing for transition out of the Army, building a civilian resume and starting a graduate program.",
+      },
     ],
   },
   {
@@ -158,11 +200,24 @@ export const path1 = [
     },
     milestone:
       "You were promoted to Lieutenant Colonel (O-5) and commanded a battalion.",
-    aiContext: "User was promoted to LTC and led a battalion.",
+    aiContext:
+      "User was promoted to LTC and led a battalion. They are two years from being able to retire from the Army with full benefits. They've saved well and want to take a vacation. Ask them if they want to visit Europe or take a tropical vacation.",
     achievements: [
       "Promoted to LTC",
       "Earned military commendation",
       "Started college fund for children",
+    ],
+    choices: [
+      {
+        label: "Visit Europe",
+        aiContext:
+          "User took a two week vacation with the family to explore Europe on a sight-seeing trip.",
+      },
+      {
+        label: "Take a Tropical Vacation",
+        aiContext:
+          "User took his family to the Caribbean for a week and stayed at a 5-star resort.",
+      },
     ],
   },
   {
